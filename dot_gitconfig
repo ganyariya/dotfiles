@@ -1,0 +1,19 @@
+# https://github.com/dandavison/delta
+[core]
+	editor = vim
+	pager = delta
+[user]
+	name = ganyariya
+	email = ganariya2525@gmail.com
+[color]
+	ui = auto
+[alias]
+	tree = log --all --graph --pretty=format:'%x09%C(auto) %h %Cgreen %ar %Creset%x09by "%C(cyan ul)%an%Creset" %x09%C(auto)%s %d'
+[interactive]
+	diffFilter = delta --color-only
+[delta]
+	navigate = true
+[merge]
+	conflictstyle = diff3
+[diff]
+	colorMoved = default
