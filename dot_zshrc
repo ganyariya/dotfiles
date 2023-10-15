@@ -14,3 +14,76 @@
 
 alias vi='nvim'
 alias vim='nvim'
+alias cat='bat'
+alias ls='exa --icons'
+alias xargs='xargs '
+
+################################################################################
+# compinit
+# compinit を実行すると入力機能が有効化される
+# https://qiita.com/yuku_t/items/77c23390e52168a2754a
+################################################################################
+autoload -Uz compinit && compinit
+
+################################################################################
+# eval environment variables
+################################################################################
+
+eval "$(/opt/homebrew/bin/brew shellenv)"
+eval "$(sheldon source)"
+
+################################################################################
+# set bindkey as vim
+#
+# zsh の key binding を vi mode にする
+################################################################################
+bindkey -v
+
+# vi insert mode (viins, not normal mode) のときに bindkey で ctrl+A が入力されたら先頭に移動させる
+bindkey -M viins '^A'  beginning-of-line
+bindkey -M viins '^B'  backward-char
+bindkey -M viins '^D'  delete-char-or-list
+bindkey -M viins '^E'  end-of-line
+bindkey -M viins '^F'  forward-char
+bindkey -M viins '^G'  send-break
+bindkey -M viins '^H'  backward-delete-char
+bindkey -M viins '^K'  kill-line
+bindkey -M viins '^N'  history-beginning-search-forward 
+bindkey -M viins '^P'  history-beginning-search-backward
+bindkey -M viins '^U'  backward-kill-line
+bindkey -M viins '^W'  backward-kill-word
+bindkey -M viins '^Y'  yank
+
+################################################################################
+# zsh shell option
+################################################################################
+# ディレクトリ名が入力されたら移動する
+setopt auto_cd
+setopt auto_pushd
+# 重複したコマンドは保存しない
+setopt hist_ignore_dups
+setopt hist_ignore_all_dups
+# 日本語を表示できるようにする
+setopt print_eight_bit
+
+# zstyle で szh のスタイル設定を行う
+# 補完メニューの1 項目目をはじめから選択するようにする
+zstyle ':completion:*:default' menu select=1
+# 大文字と小文字を区別しない
+zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:lower:][:upper:]}'
+
+################################################################################
+# zsh history
+################################################################################
+function select-history() {
+  BUFFER=$(history -n -r 1 | fzf --no-sort +m --query "$LBUFFER" --prompt="History > ")
+  CURSOR=$#BUFFER
+}
+zle -N select-history
+bindkey '^r' select-history
+
+################################################################################
+# starship
+################################################################################
+eval "$(starship init zsh)"
+

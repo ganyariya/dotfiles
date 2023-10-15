@@ -1,0 +1,66 @@
+# `sheldon` configuration file
+# ----------------------------
+#
+# You can modify this file directly or you can use one of the following
+# `sheldon` commands which are provided to assist in editing the config file:
+#
+# - `sheldon add` to add a new plugin to the config file
+# - `sheldon edit` to open up the config file in the default editor
+# - `sheldon remove` to remove a plugin from the config file
+#
+# See the documentation for more https://github.com/rossmacarthur/sheldon#readme
+
+# ---------------------------
+# https://zenn.dev/ganta/articles/e1e0746136ce67
+# ---------------------------
+
+shell = "zsh"
+
+# ---------------------------
+# プラグイン遅延読み込み用
+# ---------------------------
+
+[plugins.zsh-defer]
+github = "romkatv/zsh-defer"
+[templates]
+# defor を各 plugin toml で apply する
+defer = "{% for file in files %}zsh-defer source \"{{ file }}\"\n{% endfor %}"
+
+# ---------------------------
+# plugins
+# ---------------------------
+
+# https://github.com/zsh-users/zsh-syntax-highlighting
+# fish のように command に color を設定する
+[plugins.zsh-syntax-highlighting]
+github = "zsh-users/zsh-syntax-highlighting"
+apply = ["defer"]
+
+# https://github.com/Aloxaf/fzf-tab
+# completion を fzf で絞り込む
+[plugins.fzf-tab]
+github = "Aloxaf/fzf-tab"
+apply = ["defer"]
+
+# command を入力したときに過去に実行したコマンドを薄く表示する
+[plugins.zsh-autouggestions]
+github = "zsh-users/zsh-autosuggestions"
+apply = ["defer"]
+
+# https://github.com/zsh-users/zsh-completions
+# tab を押したときにいい感じに補完してくれるようにする (git など)
+[plugins.zsh-completions]
+github = "zsh-users/zsh-completions"
+apply = ["defer"]
+
+# https://github.com/agkozak/zsh-z
+# z でディレクトリを移動できる
+[plugins.zsh-z]
+github = "agkozak/zsh-z"
+apply = ["defer"]
+
+# https://github.com/babarot/enhancd
+# cd コマンドをいい感じにする
+[plugins.enhancd]
+github = "babarot/enhancd"
+apply = ["defer"]
