@@ -19,9 +19,9 @@ shell:
 window:
   opacity: 0.90
   padding:
-    x: 8
-    y: 4
-  decorations: transparent
+    x: 4 
+    y: 2
+  decorations: full
 
 scrolling:
   history: 10000
