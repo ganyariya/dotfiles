@@ -1,3 +1,6 @@
 [submodule "dot_config/nvim"]
 	path = dot_config/nvim
 	url = https://github.com/AstroNvim/AstroNvim
+[submodule "dot_config/astronvim/lua/user"]
+	path = dot_config/astronvim/lua/user
+	url = https://github.com/ganyariya/AstroNvimCustom
