@@ -1,3 +1,0 @@
-[submodule "dot_config/nvim"]
-	path = dot_config/nvim
-	url = https://github.com/ganyariya/NvChad
