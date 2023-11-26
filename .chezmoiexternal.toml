@@ -14,9 +14,3 @@ url = "https://github.com/AstroNvim/AstroNvim"
 refreshPeriod = "1s"
 clone.args = ["--depth", "1", "-b", "main"]
 
-[".config/astronvim/lua/user"]
-type = "git-repo"
-url = "https://github.com/ganyariya/AstroNvimCustom"
-refreshPeriod = "1s"
-clone.args = ["--depth", "1", "-b", "main"]
-
