@@ -1,0 +1,9 @@
+#!/bin/bash
+
+{{ if eq .chezmoi.os "darwin" }}
+
+infocmp tmux-256color > ~/tmux-256color.info
+tic -xe tmux-256color ~/tmux-256color.info
+
+{{ end }}
+
