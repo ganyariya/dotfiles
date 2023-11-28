@@ -2,15 +2,15 @@ live_config_reload: true
 
 font:
   normal:
-    family: "Cica"
+    family: "Hack Nerd Font"
     style: Regular
   bold:
-    family: "Cica"
+    family: "Hack Nerd Font"
     style: Bold
   italic:
-    family: "Cica"
+    family: "Hack Nerd Font"
     style: Italic
-  size: 18
+  size: 14
 
 
 shell:
