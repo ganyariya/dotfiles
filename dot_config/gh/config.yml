@@ -1,0 +1,5 @@
+git_protocol: https
+editor: nvim
+prompt: enabled
+aliases:
+  web: repo view --web
