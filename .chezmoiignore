@@ -1,3 +1,7 @@
 # tmux
 .config/tmux/*
 !.config/tmux/tmux.conf
+
+.config/gh/*
+!.config/gh/config.yml
+
