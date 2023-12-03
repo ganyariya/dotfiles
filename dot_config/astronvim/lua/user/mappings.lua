@@ -5,6 +5,7 @@
 -- automatically pick-up stored data by this setting.)
 return {
   -- first key is the mode
+  -- normal mode
   n = {
     -- second key is the lefthand side of the map
 
@@ -21,9 +22,9 @@ return {
     -- mappings seen under group name "Buffer"
     ["<leader>bD"] = {
       function()
-        require("astronvim.utils.status").heirline.buffer_picker(
-          function(bufnr) require("astronvim.utils.buffer").close(bufnr) end
-        )
+        require("astronvim.utils.status").heirline.buffer_picker(function(bufnr)
+          require("astronvim.utils.buffer").close(bufnr)
+        end)
       end,
       desc = "Pick to close",
     },
@@ -32,9 +33,16 @@ return {
     ["<leader>b"] = { name = "Buffers" },
     -- quick save
     -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
+    -- ["<leader>a"] = { "<cmd> echo 'Hello' <cr>", desc="Hello, Worlddayo"}
   },
+
+  -- terminal mode
   t = {
     -- setting a mapping to false will disable it
     -- ["<esc>"] = false,
   },
+  -- insert mode
+  i = {},
+  -- visual mode
+  v = {},
 }
