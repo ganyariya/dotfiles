@@ -5,3 +5,4 @@
 .config/gh/*
 !.config/gh/config.yml
 
+bin/executable_chezmoi
