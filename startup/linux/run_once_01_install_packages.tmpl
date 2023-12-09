@@ -16,10 +16,7 @@ apt install -y \
   neovim \
   nnn \
   ripgrep \
-  sheldon \
-  starship \
   thefuck \
-  tid \
   tldr \
   tmux \
   tmuxinator \
@@ -33,16 +30,16 @@ function dl_github_pkg() {
   REPO_NAME=$2
   VERSION=$3
   CMD_NAME=$4
+  EXT=$5
 
-  FILE=${CMD_NAME}-${KERNEL}-${MACHINE}.tar.gz
+  FILE=${CMD_NAME}-${KERNEL}-${MACHINE}.${EXT}
   curl -sLJO https://github.com/${GITHUB_USER}/${REPO_NAME}/releases/download/${VERSION}/${FILE}
   tar -xvf $FILE
   chmod +x $CMD_NAME
   mv $CMD_NAME /usr/bin/
 }
 
-dl_github_pkg "extrawurst" "gitui" "v0.24.3" "gitui"
-dl_github_pkg "xxxserxxx" "gotop" "v4.2.0" "gotop"
+dl_github_pkg "extrawurst" "gitui" "v0.24.3" "gitui" "tar.gz"
 
 # starship
 curl -sS https://starship.rs/install.sh | sh -s -- --yes
