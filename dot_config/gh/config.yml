@@ -3,3 +3,4 @@ editor: nvim
 prompt: enabled
 aliases:
   web: repo view --web
+version: "1"
