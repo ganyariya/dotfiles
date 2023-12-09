@@ -1,0 +1,11 @@
+#!/bin/bash
+
+{{ if eq .chezmoi.os "linux" }}
+
+{{ if eq .chezmoi.osRelease.id "debian" }}
+
+echo 10
+
+{{ end }}
+
+{{ end }}
