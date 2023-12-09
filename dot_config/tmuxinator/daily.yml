@@ -22,3 +22,7 @@ windows:
       panes:
         - asciiquarium
         - gotop
+  - chezmoi:
+      layout: even-vertical
+      panes:
+        - cd ~/.local/share/chezmoi/
