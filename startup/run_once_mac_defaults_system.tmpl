@@ -1,0 +1,33 @@
+#!/bin/bash
+
+{{ if eq .chezmoi.os "darwin" }}
+
+ls
+
+########################
+# Dock
+########################
+
+# Dock Size
+defaults write com.apple.dock tilesize -int 50
+# Dock 拡大
+defaults write com.apple.dock magnification -bool true
+# Dock 拡大サイズ
+defaults write com.apple.dock largesize -int 150
+# ウィンドウをアプリケーションアイコンにしまう
+defaults write com.apple.dock minimize-to-application -bool true
+# 自動で隠す
+defaults write com.apple.dock autohide -bool true
+# 最近使ったアプリを Dock に表示しない
+defaults write com.apple.dock show-recents -bool false
+# Dock 再起動
+killall Dock
+
+
+########################
+# Mouse & Trackpad
+########################
+defaults write "Apple Global Domain" com.apple.mouse.scaling 4.0
+defaults write "Apple Global Domain" com.apple.trackpad.scaling 4.0
+
+{{ end }}
