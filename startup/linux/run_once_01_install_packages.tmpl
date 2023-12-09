@@ -4,6 +4,10 @@
 
 {{ if eq .chezmoi.osRelease.id "debian" }}
 
+#############################
+# install cmd
+#############################
+
 apt update
 apt install -y \
   bat \
@@ -11,9 +15,9 @@ apt install -y \
   exa \
   fd-find \
   fzf \
+  git \
   gh \
   neofetch \
-  neovim \
   nnn \
   ripgrep \
   thefuck \
@@ -21,6 +25,10 @@ apt install -y \
   tmux \
   tmuxinator \
   wget
+
+#############################
+# dl by github release
+#############################
 
 function dl_github_pkg() {
   GITHUB_USER=$1
@@ -39,9 +47,11 @@ function dl_github_pkg() {
 KERNEL=$(uname -s | tr '[:upper:]' '[:lower:]')
 MACHINE=$(uname -m | tr '[:upper:]' '[:lower:]')
 
-# dl_github_pkg "neovim" "neovim" "v0.9.4" "nvim-linux64.tar.gz" "nvim-linux64/bin/nvim"
-
 dl_github_pkg "extrawurst" "gitui" "v0.24.3" "gitui-${KERNEL}-${MACHINE}.tar.gz" "gitui"
+
+#############################
+# dl by curl
+#############################
 
 # starship
 curl -sS https://starship.rs/install.sh | sh -s -- --yes
@@ -50,7 +60,16 @@ curl -sS https://starship.rs/install.sh | sh -s -- --yes
 curl --proto '=https' -fLsS https://rossmacarthur.github.io/install/crate.sh \
     | bash -s -- --repo rossmacarthur/sheldon --to /usr/local/bin
 
-source ~/.zprofile
+#############################
+# nvim build
+# apt で入る nvim が古すぎる
+#############################
+
+git clone https://github.com/neovim/neovim --depth=1
+cd neovim
+apt install -y libtool autoconf automake make cmake libncurses5-dev g++ gettext
+make CMAKE_BUILD_TYPE=RelWithDebInfo
+make install
 
 {{ end }}
 
