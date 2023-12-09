@@ -23,23 +23,25 @@ apt install -y \
   wget
 
 function dl_github_pkg() {
-  KERNEL=$(uname -s | tr '[:upper:]' '[:lower:]')
-  MACHINE=$(uname -m | tr '[:upper:]' '[:lower:]')
-
   GITHUB_USER=$1
   REPO_NAME=$2
   VERSION=$3
-  CMD_NAME=$4
-  EXT=$5
+  FILE=$4
+  ARCHIVED_PATH=$5
 
-  FILE=${CMD_NAME}-${KERNEL}-${MACHINE}.${EXT}
   curl -sLJO https://github.com/${GITHUB_USER}/${REPO_NAME}/releases/download/${VERSION}/${FILE}
-  tar -xvf $FILE
-  chmod +x $CMD_NAME
-  mv $CMD_NAME /usr/bin/
+  tar -xvf $FILE || true
+  chmod +x $ARCHIVED_PATH
+  cp $ARCHIVED_PATH /usr/bin/
+  #rm -rf $FILE $ARCHIVED_PATH
 }
 
-dl_github_pkg "extrawurst" "gitui" "v0.24.3" "gitui" "tar.gz"
+KERNEL=$(uname -s | tr '[:upper:]' '[:lower:]')
+MACHINE=$(uname -m | tr '[:upper:]' '[:lower:]')
+
+# dl_github_pkg "neovim" "neovim" "v0.9.4" "nvim-linux64.tar.gz" "nvim-linux64/bin/nvim"
+
+dl_github_pkg "extrawurst" "gitui" "v0.24.3" "gitui-${KERNEL}-${MACHINE}.tar.gz" "gitui"
 
 # starship
 curl -sS https://starship.rs/install.sh | sh -s -- --yes
