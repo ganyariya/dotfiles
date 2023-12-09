@@ -9,6 +9,19 @@
 ################################################################################
 
 ################################################################################
+# function
+################################################################################
+
+# cmd が存在するときだけ eval_cmd を評価して実行する
+function eval_at_cmd_exists() {
+  cmd=$1
+  eval_cmd=$2
+  if type $cmd > /dev/null 2>&1; then
+    eval "$(eval $eval_cmd)"
+  fi
+}
+
+################################################################################
 # alias
 ################################################################################
 
@@ -29,8 +42,11 @@ autoload -Uz compinit && compinit
 # eval environment variables
 ################################################################################
 
-eval "$(/opt/homebrew/bin/brew shellenv)"
-eval "$(sheldon source)"
+eval_at_cmd_exists "brew" "/opt/homebrew/bin/brew shellenv"
+eval_at_cmd_exists "sheldon" "sheldon source"
+# if type "sheldon" > /dev/null 2>&1; then
+#   eval "$(sheldon source)"
+# fi
 
 ################################################################################
 # set bindkey as vim
@@ -85,10 +101,16 @@ bindkey '^r' select-history
 ################################################################################
 # the fuck
 ################################################################################
-eval $(thefuck --alias)
+eval_at_cmd_exists "thefuck" "thefuck --alias"
+# if type "thefuck" > /dev/null 2>&1; then
+#   eval $(thefuck --alias)
+# fi
 
 ################################################################################
 # starship
 ################################################################################
-eval "$(starship init zsh)"
+eval_at_cmd_exists "starship" "starship init zsh"
+if type "starship" > /dev/null 2>&1; then
+  eval "$(starship init zsh)"
+fi
 
