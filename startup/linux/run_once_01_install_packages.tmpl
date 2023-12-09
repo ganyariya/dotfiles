@@ -4,7 +4,38 @@
 
 {{ if eq .chezmoi.osRelease.id "debian" }}
 
-echo 10
+apt update
+apt install -y \
+  bat \
+  curl \
+  exa \
+  fd-find \
+  fzf \
+  gh \
+  neofetch \
+  neovim \
+  nnn \
+  ripgrep \
+  sheldon \
+  starship \
+  thefuck \
+  tid \
+  tldr \
+  tmux \
+  tmuxinator \
+  wget
+
+# gitui
+# gotop
+curl -Lo /usr/bin/gotop https://github.com/cjbassi/gotop/releases/latest/download/gotop-$(uname -s)-$(uname -m)
+chmod +x /usr/bin/gotop
+
+# starship
+curl -sS https://starship.rs/install.sh | sh -s -- --yes
+
+# sheldon
+curl --proto '=https' -fLsS https://rossmacarthur.github.io/install/crate.sh \
+    | bash -s -- --repo rossmacarthur/sheldon --to /usr/local/bin
 
 {{ end }}
 
