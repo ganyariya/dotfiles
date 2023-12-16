@@ -41,12 +41,9 @@ autoload -Uz compinit && compinit
 ################################################################################
 # eval environment variables
 ################################################################################
-
-eval_at_cmd_exists "brew" "/opt/homebrew/bin/brew shellenv"
 eval_at_cmd_exists "sheldon" "sheldon source"
-# if type "sheldon" > /dev/null 2>&1; then
-#   eval "$(sheldon source)"
-# fi
+eval_at_cmd_exists "thefuck" "thefuck --alias"
+eval_at_cmd_exists "starship" "starship init zsh"
 
 ################################################################################
 # set bindkey as vim
@@ -97,20 +94,4 @@ function select-history() {
 }
 zle -N select-history
 bindkey '^r' select-history
-
-################################################################################
-# the fuck
-################################################################################
-eval_at_cmd_exists "thefuck" "thefuck --alias"
-# if type "thefuck" > /dev/null 2>&1; then
-#   eval $(thefuck --alias)
-# fi
-
-################################################################################
-# starship
-################################################################################
-eval_at_cmd_exists "starship" "starship init zsh"
-if type "starship" > /dev/null 2>&1; then
-  eval "$(starship init zsh)"
-fi
 
