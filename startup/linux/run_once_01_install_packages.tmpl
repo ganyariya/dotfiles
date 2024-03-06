@@ -24,7 +24,18 @@ apt install -y \
   tldr \
   tmux \
   tmuxinator \
-  wget
+  wget \
+  python3.10-venv
+
+#############################
+# install go
+#############################
+
+GO_VERSION=1.22.1
+wget "https://go.dev/dl/go${GO_VERSION}.linux-amd64.tar.gz"
+sudo tar -C /usr/local -xzf "go${GO_VERSION}.linux-amd64.tar.gz"
+rm -rf "go${GO_VERSION}.linux-amd64.tar.gz"
+
 
 #############################
 # dl by github release
@@ -58,7 +69,7 @@ curl -sS https://starship.rs/install.sh | sh -s -- --yes
 
 # sheldon
 curl --proto '=https' -fLsS https://rossmacarthur.github.io/install/crate.sh \
-    | bash -s -- --repo rossmacarthur/sheldon --to /usr/local/bin
+    | sudo bash -s -- --repo rossmacarthur/sheldon --to /usr/local/bin
 
 #############################
 # nvim build
