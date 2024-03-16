@@ -83,7 +83,8 @@ setopt print_eight_bit
 # 補完メニューの1 項目目をはじめから選択するようにする
 zstyle ':completion:*:default' menu select=1
 # 大文字と小文字を区別しない
-zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:lower:][:upper:]}'
+# tab completion がバグるので外す
+# zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:lower:][:upper:]}'
 
 ################################################################################
 # zsh history
