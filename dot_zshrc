@@ -82,9 +82,6 @@ setopt print_eight_bit
 # zstyle で szh のスタイル設定を行う
 # 補完メニューの1 項目目をはじめから選択するようにする
 zstyle ':completion:*:default' menu select=1
-# 大文字と小文字を区別しない
-# tab completion がバグるので外す
-# zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:lower:][:upper:]}'
 
 ################################################################################
 # zsh history
