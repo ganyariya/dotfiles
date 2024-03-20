@@ -61,6 +61,14 @@ MACHINE=$(uname -m | tr '[:upper:]' '[:lower:]')
 dl_github_pkg "extrawurst" "gitui" "v0.24.3" "gitui-${KERNEL}-${MACHINE}.tar.gz" "gitui"
 
 #############################
+# Install flox
+#############################
+VERSION="1.0.1"
+wget "https://downloads.flox.dev/by-env/stable/deb/flox-${VERSION}.$(uname -m)-linux.deb" -O flox.deb
+sudo dpkg -i flox.deb
+rm -rf flox.deb
+
+#############################
 # dl by curl
 #############################
 
