@@ -1,0 +1,11 @@
+
+[paths]
+selfcontrol = "/Applications/SelfControl.app/Contents/MacOS/org.eyebeam.SelfControl"   
+launch_agents = "/Users/ganyariya/Library/LaunchAgents/"
+
+[blocks]
+
+* = [
+    (08:00 -> 21:00)
+]
+
