@@ -14,3 +14,9 @@ apt update && \
   chsh -s /usr/bin/zsh && \
   sh -c "$(curl -fsLS get.chezmoi.io)" -- -b $HOME/bin init --apply ganyariya
 ```
+
+### Forcely refresh archives
+
+```bash
+chezmoi apply --init --refresh-externals
+```
