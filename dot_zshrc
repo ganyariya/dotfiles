@@ -44,6 +44,7 @@ autoload -Uz compinit && compinit
 eval_at_cmd_exists "sheldon" "sheldon source"
 eval_at_cmd_exists "thefuck" "thefuck --alias"
 eval_at_cmd_exists "starship" "starship init zsh"
+eval_at_cmd_exists "kubectl" "kubectl completion zsh"
 
 ################################################################################
 # set bindkey as vim
