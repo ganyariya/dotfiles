@@ -32,6 +32,17 @@ alias ls='exa --icons'
 alias xargs='xargs '
 
 ################################################################################
+# Homebrew autocompletion
+# https://docs.brew.sh/Shell-Completion
+################################################################################
+if type brew &>/dev/null
+then
+  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+  autoload -Uz compinit
+  compinit
+fi
+
+################################################################################
 # compinit
 # compinit を実行すると入力機能が有効化される
 # https://qiita.com/yuku_t/items/77c23390e52168a2754a
