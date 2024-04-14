@@ -36,29 +36,48 @@ wget "https://go.dev/dl/go${GO_VERSION}.linux-amd64.tar.gz"
 sudo tar -C /usr/local -xzf "go${GO_VERSION}.linux-amd64.tar.gz"
 rm -rf "go${GO_VERSION}.linux-amd64.tar.gz"
 
-
 #############################
-# dl by github release
+# DL from github releases
 #############################
 
-function dl_github_pkg() {
+function dl_from_github_release() {
   GITHUB_USER=$1
   REPO_NAME=$2
   VERSION=$3
-  FILE=$4
-  ARCHIVED_PATH=$5
+  RELEASE_FILE=$4
+  ARCHIVED_FILE=$5
 
-  curl -sLJO https://github.com/${GITHUB_USER}/${REPO_NAME}/releases/download/${VERSION}/${FILE}
-  tar -xvf $FILE || true
-  chmod +x $ARCHIVED_PATH
-  cp $ARCHIVED_PATH /usr/bin/
-  #rm -rf $FILE $ARCHIVED_PATH
+  RELEASE_FILE_EXT="${RELEASE_FILE##*.}"
+  TMP_DIR="${GITHUB_USER}-${REPO_NAME}-tmp-dl-binary"
+
+  mkdir -p $TMP_DIR && cd $TMP_DIR 
+  wget https://github.com/${GITHUB_USER}/${REPO_NAME}/releases/download/${VERSION}/${RELEASE_FILE}
+
+  case $RELEASE_FILE_EXT in
+    gz)
+      tar xz -f $RELEASE_FILE
+      ;;
+    zip)
+      unzip $RELEASE_FILE
+      ;;
+    *)
+      echo "Unsupported file type: $RELEASE_FILE_EXT"
+      return 1
+      ;;
+  esac
+
+  chmod +x $ARCHIVED_FILE
+  mkdir -p ~/custombin && cp $ARCHIVED_FILE ~/custombin
+  cd .. && rm -rf $TMP_DIR
 }
 
 KERNEL=$(uname -s | tr '[:upper:]' '[:lower:]')
 MACHINE=$(uname -m | tr '[:upper:]' '[:lower:]')
 
-dl_github_pkg "extrawurst" "gitui" "v0.24.3" "gitui-${KERNEL}-${MACHINE}.tar.gz" "gitui"
+# architecture が実行環境によって異なる
+# コマンドで吸収するには限度があるためうまくいかない場合は都度 dl する
+dl_from_github_release "extrawurst" "gitui" "v0.25.2" "gitui-${KERNEL}-musl.tar.gz" "gitui"
+dl_from_github_release "derailed" "k9s" "v0.32.4" "k9s_Linux_amd64.tar.gz" "k9s"
 
 #############################
 # Install flox
@@ -81,7 +100,7 @@ curl --proto '=https' -fLsS https://rossmacarthur.github.io/install/crate.sh \
 
 #############################
 # nvim build
-# apt で入る nvim が古すぎる
+# apt で入る nvim が古すぎるため 自前で build する
 #############################
 
 git clone https://github.com/neovim/neovim --depth=1
