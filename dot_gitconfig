@@ -2,9 +2,8 @@
 [core]
 	editor = vim
 	pager = delta
-[user]
-	name = ganyariya
-	email = ganariya2525@gmail.com
+	# 日本語を正常に表示させる
+	quotepath = false
 [color]
 	ui = auto
 [alias]
@@ -17,3 +16,13 @@
 	conflictstyle = diff3
 [diff]
 	colorMoved = default
+# lfs のデフォルト設定
+[filter "lfs"]
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+    required = true
+
+# 個人と会社で email が異なるため user は分離する
+[include]
+	path = ~/.gitconfig_user
