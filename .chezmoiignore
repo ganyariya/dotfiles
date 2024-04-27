@@ -6,3 +6,5 @@
 !.config/gh/config.yml
 
 bin/executable_chezmoi
+
+.gitconfig_user
