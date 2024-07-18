@@ -1,4 +1,5 @@
 {
+  "alpha-nvim": { "branch": "main", "commit": "41283fb402713fc8b327e60907f74e46166f4cfd" },
   "lazy.nvim": { "branch": "main", "commit": "c92c6b5fd2b3a13c8999ab8379e43a79c9406e59" },
   "mason.nvim": { "branch": "main", "commit": "e2f7f9044ec30067bc11800a9e266664b88cda22" },
   "neoscroll.nvim": { "branch": "master", "commit": "a7f5953dbfbe7069568f2d0ed23a9709a56725ab" },
