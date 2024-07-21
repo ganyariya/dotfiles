@@ -1,13 +1,13 @@
 return  {
     "nvim-treesitter/nvim-treesitter",
-     enabled = true,
+     enabled2 = false,
      -- nvim-treesitter コマンドがアップデートされたときに :TSUpdate を実行する
      lazy = false,
      build = ":TSUpdate",
      -- これらのイベントが発生したときに nvim-treesitter が有効化される
-     event = { "BufReadPost", "BufNewFile"  },
+     -- event = { "BufReadPost", "BufNewFile"  },
      -- 下記コマンドが実行されたときにも読み込まれる
-     cmd = { "TSUpdate", "TSInstall" },
+     -- cmd = { "TSUpdate", "TSInstall" },
      config = function ()
        local configs = require("nvim-treesitter.configs")
 

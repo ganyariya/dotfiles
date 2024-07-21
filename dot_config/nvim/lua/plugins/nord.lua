@@ -1,5 +1,6 @@
 return {
     "shaunsingh/nord.nvim",
+    enabled = true,
     lazy = false,
     priority = 1001,
     config = function()

@@ -40,7 +40,7 @@ require("lazy").setup({
     -- { import = "plugins.mason", },
   },
   -- colorscheme を自由に選択できる
-  install = { colorscheme = { "tokyonight" } },
+  install = { colorscheme = { "nord" } },
   -- プラグインの更新を勝手にやってくれる
   checker = { enabled = true },
 })

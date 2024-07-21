@@ -1,3 +1,5 @@
 local opt = vim.opt
- 
-opt.updatetime = 250
+
+-- vim 内の yank を mac に移す
+opt.clipboard:append("unnamedplus")
+
