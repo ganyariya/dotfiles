@@ -11,6 +11,7 @@ return {
     local builtin = require('telescope.builtin')
 
     telescope.load_extension("fzf")
+    telescope.load_extension('projects')
 
     telescope.setup({
       defaults = {
