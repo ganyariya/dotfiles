@@ -14,6 +14,7 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup(
    {  
 	   {import = "ganyariya.plugins"},
+	   {import = "ganyariya.plugins.lsp"},
    }, 
    {
   checker = {
