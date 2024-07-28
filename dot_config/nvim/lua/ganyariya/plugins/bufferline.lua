@@ -6,7 +6,7 @@ return {
   -- require('bufferline').setup(opts) と同じになる
   opts = {
     options = {
-      mode = "tabs",
+      --Focus mode = "tabs",
     },
   },
 }
