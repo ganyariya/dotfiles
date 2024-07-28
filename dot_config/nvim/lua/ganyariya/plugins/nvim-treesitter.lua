@@ -23,6 +23,7 @@ return {
       -- ensure these language parsers are installed
       ensure_installed = {
         "lua",
+        "php",
       },
       incremental_selection = {
         enable = true,
