@@ -13,7 +13,7 @@ opt.autoindent = true
 -- wrap
 opt.wrap = false
 
--- search 
+-- search
 opt.ignorecase = true -- 検索時に大文字小文字を無視する
 opt.smartcase = true -- 検索に大文字を入力した場合は大文字を考慮する
 
