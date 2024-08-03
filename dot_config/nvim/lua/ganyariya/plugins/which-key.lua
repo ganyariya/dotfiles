@@ -1,6 +1,9 @@
 return {
   "folke/which-key.nvim",
   event = "VeryLazy",
+  dependencies = {
+    "nvim-tree/nvim-web-devicons",
+  },
   opts = {
     -- your configuration comes here
     -- or leave it empty to use the default settings
@@ -26,17 +29,20 @@ return {
   },
   config = function()
     local wk = require("which-key")
+    local icon = require("which-key.icons")
+
     wk.add({
       { "<Leader>f", group = "Telescope" },
       { "<Leader>w", group = "Window" },
       { "<Leader>t", group = "Tab" },
       { "<Leader>b", group = "Buffer" },
-      { "<Leader>c", group = "Comment" },
-      { "<Leader>e", group = "Tree" },
+      { "<Leader>c", group = "Comment", icon = "#" },
+      { "<Leader>e", group = "Tree", icon = "🌲" },
       { "<Leader>g", group = "Git" },
-      { "<Leader>l", group = "LSP" },
-      { "<Leader>x", group = "Trouble" },
-      { "<Leader>F", group = "Format" },
+      { "<Leader>l", group = "LSP", icon = "💉" },
+      { "<Leader>x", group = "Trouble", icon = "⚠" },
+      { "<Leader>L", group = "Lint", icon = icon.get_icon("checkhealth") },
+      { "<Leader>F", group = "Format", icon = "🌊" },
       { "<Leader>/", group = "Toggle Comment" },
       -- lsp
       { "<Leader>lg", group = "Goto" },
