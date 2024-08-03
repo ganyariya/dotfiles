@@ -6,7 +6,7 @@ return {
     "hrsh7th/cmp-nvim-lsp",
     -- file 操作で lsp を利用できるようにする
     { "antosha417/nvim-lsp-file-operations", config = true },
-    -- { "folke/neodev.nvim", opts = {} },
+    { "folke/neodev.nvim", opts = {} },
   },
   config = function()
     local lspconfig = require('lspconfig')
