@@ -6,9 +6,9 @@ return {
   },
 
   config = function()
-    local mason = require('mason')
-    local mason_lspconfig = require('mason-lspconfig')
-    local mason_tool_installer = require('mason-tool-installer')
+    local mason = require("mason")
+    local mason_lspconfig = require("mason-lspconfig")
+    local mason_tool_installer = require("mason-tool-installer")
 
     mason.setup({
       ui = {
@@ -16,8 +16,8 @@ return {
           package_installed = "✓",
           package_pending = "➜",
           package_uninstalled = "✗",
-        }
-      }
+        },
+      },
     })
 
     mason_lspconfig.setup({
@@ -30,9 +30,11 @@ return {
     -- formatter & linter を自動インストールする
     mason_tool_installer.setup({
       ensure_installed = {
+        -- formatter
         "stylua",
         "prettier",
+        -- linter
       },
     })
-  end
+  end,
 }
