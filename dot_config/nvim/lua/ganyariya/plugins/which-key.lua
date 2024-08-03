@@ -8,11 +8,36 @@ return {
   },
   keys = {
     {
-      "<leader>?",
+      "<Leader>?",
       function()
-        require("which-key").show({ global = false })
+        local wk = require("which-key")
+        wk.show({ global = true })
+      end,
+      desc = "Global Keymaps (which-key)",
+    },
+    {
+      "<Leader>?l",
+      function()
+        local wk = require("which-key")
+        wk.show({ global = false })
       end,
       desc = "Buffer Local Keymaps (which-key)",
     },
   },
+  config = function()
+    local wk = require("which-key")
+    wk.add({
+      { "<Leader>f", group = "Telescope" },
+      { "<Leader>w", group = "Window" },
+      { "<Leader>t", group = "Tab" },
+      { "<Leader>b", group = "Buffer" },
+      { "<Leader>c", group = "Comment" },
+      { "<Leader>e", group = "Tree" },
+      { "<Leader>g", group = "Git" },
+      { "<Leader>l", group = "LSP" },
+      { "<Leader>x", group = "Trouble" },
+      { "<Leader>F", group = "Format" },
+      { "<Leader>/", group = "Toggle Comment" },
+    })
+  end,
 }
