@@ -1,14 +1,14 @@
 local keymap = vim.keymap
 
 local opts = function(desc)
-    return { noremap = true, silent = true, desc = desc }
+  return { noremap = true, silent = true, desc = desc }
 end
 
 vim.g.mapleader = " "
 
 -- 削除したときに yank register に保存しないようにする
-keymap.set('n', 'x', '"_x', { noremap = true, silent = true })
-keymap.set('n', 'd', '"_d', { noremap = true, silent = true })
+keymap.set("n", "x", '"_x', { noremap = true, silent = true })
+keymap.set("n", "d", '"_d', { noremap = true, silent = true })
 
 ----------------------------
 -- Windows
@@ -22,10 +22,10 @@ keymap.set("n", "<Leader>wj", "<C-w>j", opts("Move to bottom window"))
 keymap.set("n", "<Leader>wk", "<C-w>k", opts("Move to top window"))
 keymap.set("n", "<Leader>wl", "<C-w>l", opts("Move to right window"))
 
-keymap.set("n", "<Leader>w<", "<C-w><", opts("Decrease window width"))
-keymap.set("n", "<Leader>w>", "<C-w>>", opts("Increase window width"))
-keymap.set("n", "<Leader>w>>", "<C-w>+", opts("Increase window height"))
-keymap.set("n", "<Leader>w<<", "<C-w>-", opts("Decrease window height"))
+keymap.set("n", "<Leader>w<", "20<C-w><", opts("Decrease window width"))
+keymap.set("n", "<Leader>w>", "20<C-w>>", opts("Increase window width"))
+keymap.set("n", "<Leader>w>>", "20<C-w>+", opts("Increase window height"))
+keymap.set("n", "<Leader>w<<", "20<C-w>-", opts("Decrease window height"))
 
 keymap.set("n", "<Leader>wo", ":only<CR>", opts("Close all other windows"))
 keymap.set("n", "<Leader>wc", ":close<CR>", opts("Close current window"))

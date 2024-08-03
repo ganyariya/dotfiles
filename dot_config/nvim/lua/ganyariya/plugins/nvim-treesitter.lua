@@ -24,6 +24,7 @@ return {
       ensure_installed = {
         "lua",
         "php",
+        "markdown",
       },
       incremental_selection = {
         enable = true,
