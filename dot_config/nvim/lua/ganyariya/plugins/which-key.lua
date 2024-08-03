@@ -38,6 +38,10 @@ return {
       { "<Leader>x", group = "Trouble" },
       { "<Leader>F", group = "Format" },
       { "<Leader>/", group = "Toggle Comment" },
+      -- lsp
+      { "<Leader>lg", group = "Goto" },
+      -- git link
+      { "<Leader>gl", group = "GitLink" },
     })
   end,
 }

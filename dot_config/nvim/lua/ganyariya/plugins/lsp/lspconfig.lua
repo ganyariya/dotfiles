@@ -7,11 +7,12 @@ return {
     -- file 操作で lsp を利用できるようにする
     { "antosha417/nvim-lsp-file-operations", config = true },
     { "folke/neodev.nvim", opts = {} },
+    { "nvimdev/lspsaga.nvim" },
   },
   config = function()
-    local lspconfig = require('lspconfig')
-    local cmp_nvim_lsp = require('cmp_nvim_lsp')
-    local mason_lspconfig = require('mason-lspconfig')
+    local lspconfig = require("lspconfig")
+    local cmp_nvim_lsp = require("cmp_nvim_lsp")
+    local mason_lspconfig = require("mason-lspconfig")
 
     local keymap = vim.keymap
 
@@ -21,45 +22,60 @@ return {
       callback = function(ev)
         local opts = { buffer = ev.buf, silent = true }
 
-        opts.desc = "Show LSP References"
-        keymap.set("n", "<leader>lr", "<Cmd>Telescope lsp_references<CR>", opts)
+        -- カーソルにある word の参照箇所を調べる
+        opts.desc = "Show References"
+        keymap.set("n", "<leader>lR", "<Cmd>Telescope lsp_references<CR>", opts)
 
-        opts.desc = "Show LSP Definitions"
+        -- カーソルにある word の定義を調べる
+        opts.desc = "Show Definitions"
         keymap.set("n", "<Leader>lD", "<Cmd>Telescope lsp_definitions<CR>", opts)
 
-        opts.desc = "Show LSP Implementations"
-        keymap.set("n", "<Leader>li", "<Cmd>Telescope lsp_implementations<CR>", opts) -- show lsp implementations
+        -- カーソルにある word の実装を調べる
+        opts.desc = "Show Implementations"
+        keymap.set("n", "<Leader>lI", "<Cmd>Telescope lsp_implementations<CR>", opts)
 
-        opts.desc = "Show LSP Type Definitions"
-        keymap.set("n", "<Leader>ltd", "<Cmd>Telescope lsp_type_definitions<CR>", opts) -- show lsp type definitions
+        -- カーソルにある word の型定義を調べる
+        opts.desc = "Show Type Definitions"
+        keymap.set("n", "<Leader>lT", "<Cmd>Telescope lsp_type_definitions<CR>", opts)
 
-        opts.desc = "Show Available Code Actions"
-        keymap.set({ "n", "v" }, "<leader>lca", vim.lsp.buf.code_action, opts) -- see available code actions, in visual mode will apply to selection
+        -- 該当行でできるコードアクションを出す
+        -- 抜けるときは q
+        opts.desc = "Code Actions"
+        keymap.set({ "n", "v" }, "<leader>lA", "<Cmd>Lspsaga code_action<CR>", opts)
 
-        opts.desc = "Smart Rename"
-        keymap.set("n", "<Leader>lrn", vim.lsp.buf.rename, opts) -- smart rename
+        -- 該当の word を rename する
+        -- 抜けるときは <C-k>
+        opts.desc = "Rename"
+        keymap.set("n", "<Leader>lN", "<Cmd>Lspsaga rename<CR>", opts)
 
-        opts.desc = "Show buffer diagnostics"
-        keymap.set("n", "<Leader>ldb", "<cmd>Telescope diagnostics bufnr=0<CR>", opts) -- show  diagnostics for file
+        -- 今開いているファイルの Diagnostics を表示する
+        --[[ opts.desc = "Show Current File Diagnostics"
+        keymap.set("n", "<Leader>ldC", "<cmd>Telescope diagnostics bufnr=0<CR>", opts) ]]
 
+        --[[ -- 今開いているファイルの Diagnostics を表示する
         opts.desc = "Show line diagnostics"
-        keymap.set("n", "<Leader>ldl", vim.diagnostic.open_float, opts) -- show diagnostics for line
+        keymap.set("n", "<Leader>ldl", vim.diagnostic.open_float, opts) -- show diagnostics for line ]]
 
+        -- 宣言箇所に移動する
         opts.desc = "Go to Declaration"
-        keymap.set("n", "<Leader>lgd", vim.lsp.buf.declaration, opts)
+        keymap.set("n", "<Leader>lgD", vim.lsp.buf.declaration, opts)
 
+        -- 前の診断箇所に移動する
         opts.desc = "Go to previous diagnostic"
-        keymap.set("n", "<Leader>lgp", vim.diagnostic.goto_prev, opts) -- jump to previous diagnostic in buffer
+        keymap.set("n", "<Leader>lgP", vim.diagnostic.goto_prev, opts)
 
+        -- 次の診断箇所に移動する
         opts.desc = "Go to next diagnostic"
-        keymap.set("n", "<Leader>lgn", vim.diagnostic.goto_next, opts) -- jump to next diagnostic in buffer
+        keymap.set("n", "<Leader>lgN", vim.diagnostic.goto_next, opts)
 
+        -- cursor 位置のドキュメントを読む
         opts.desc = "Show Documentation for what is under cursor"
-        keymap.set("n", "<Leader>lK", vim.lsp.buf.hover, opts) -- show documentation for what is under cursor
+        keymap.set("n", "<Leader>lK", vim.lsp.buf.hover, opts)
 
+        -- リスタートする
         opts.desc = "Restart LSP"
-        keymap.set("n", "<Leader>lrs", ":LspRestart<CR>", opts)
-      end
+        keymap.set("n", "<Leader>lS", ":LspRestart<CR>", opts)
+      end,
     })
 
     -- エラー時のアイコンを変更する
@@ -74,8 +90,8 @@ return {
     mason_lspconfig.setup_handlers({
       function(server_name)
         lspconfig[server_name].setup({
-        capabilities = capabilities
-      })
+          capabilities = capabilities,
+        })
       end,
       ["lua_ls"] = function()
         lspconfig["lua_ls"].setup({
@@ -87,12 +103,11 @@ return {
               },
               completion = {
                 callSnippet = "Replace",
-              }
-            }
-          }
+              },
+            },
+          },
         })
-      end
+      end,
     })
-
-  end
+  end,
 }

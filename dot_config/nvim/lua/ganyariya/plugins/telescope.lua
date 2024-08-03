@@ -36,6 +36,7 @@ return {
     keymap.set("n", "<Leader>fk", builtin.keymaps, { desc = "Telescope KeyMaps" })
     keymap.set("n", "<Leader>fh", builtin.help_tags, { desc = "Telescope Help Tags" })
     keymap.set("n", "<Leader>fc", builtin.command_history, { desc = "Telescope Command Histories" })
+    keymap.set("n", "<Leader>fb", builtin.buffers, { desc = "Telescope Buffers" })
     -- カレントディレクトリ配下のファイルテキストを grep 検索する
     keymap.set("n", "<Leader>fs", builtin.live_grep, { desc = "Telescope Grep Texts in Files" })
   end,
