@@ -46,6 +46,7 @@ return {
       { "<Leader>/", group = "Toggle Comment" },
       { "<Leader>k", group = "Knife", icon = "🔪" },
       { "<Leader>T", group = "Terminal" },
+      { "<Leader>d", group = "Debugger", icon = "🐛" },
       -- lsp
       { "<Leader>lg", group = "Goto" },
       -- git link
