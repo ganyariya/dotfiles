@@ -31,6 +31,7 @@ https://www.youtube.com/watch?v=6pAG3BHurdM
 | ---- | ---- |
 | `<C-\><C-n>` | terminal-normal mode に切り替える |
 | `i` | terminal-job mode に切り替える |
+| `{number}<C-\>` | 該当の番号のターミナルを開く |
 
 ## 備忘録
 
