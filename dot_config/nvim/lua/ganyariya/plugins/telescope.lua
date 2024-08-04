@@ -11,9 +11,6 @@ return {
     local actions = require("telescope.actions")
     local builtin = require("telescope.builtin")
 
-    telescope.load_extension("fzf")
-    telescope.load_extension("projects")
-
     telescope.setup({
       defaults = {
         path_display = { "smart" },
@@ -24,7 +21,16 @@ return {
           },
         },
       },
+      extensions = {
+        smart_open = {
+          match_algorithm = "fzf",
+        },
+      },
     })
+
+    -- telescope setup 実行後に load する必要がある
+    telescope.load_extension("fzf")
+    telescope.load_extension("projects")
 
     local keymap = vim.keymap
 
@@ -39,5 +45,7 @@ return {
     keymap.set("n", "<Leader>fb", builtin.buffers, { desc = "Telescope Buffers" })
     -- カレントディレクトリ配下のファイルテキストを grep 検索する
     keymap.set("n", "<Leader>fs", builtin.live_grep, { desc = "Telescope Grep Texts in Files" })
+    -- スマート検索を実行する
+    keymap.set("n", "<Leader>fS", "<Cmd>Telescope smart_open<CR>", { desc = "Telescope Smart Open" })
   end,
 }
