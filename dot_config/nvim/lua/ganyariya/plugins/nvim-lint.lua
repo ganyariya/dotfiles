@@ -7,6 +7,10 @@ return {
     lint.linters_by_ft = {
       -- javascript = { "eslint_d" },
       -- typescript = { "eslint_d" },
+      php = {
+        "phpcs",
+        "phpstan",
+      },
     }
 
     -- lint という自動コマンド「グループ」を作成する

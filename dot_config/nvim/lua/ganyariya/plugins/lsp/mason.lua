@@ -22,19 +22,24 @@ return {
 
     mason_lspconfig.setup({
       ensure_installed = {
+        --lua
         "lua_ls",
-        "intelephense",
+        --go
         "gopls",
+        --php
+        "intelephense",
+        "psalm",
       },
     })
 
     -- formatter & linter を自動インストールする
     mason_tool_installer.setup({
       ensure_installed = {
-        -- formatter
+        -- lua formatter
         "stylua",
-        "prettier",
-        -- linter
+        -- php linter
+        "phpcs",
+        "phpstan",
       },
     })
   end,
