@@ -25,6 +25,7 @@ return {
         "lua",
         "php",
         "markdown",
+        "go",
       },
       incremental_selection = {
         enable = true,

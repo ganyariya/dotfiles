@@ -93,6 +93,7 @@ return {
           capabilities = capabilities,
         })
       end,
+      -- LSP ごとの設定を行う
       ["lua_ls"] = function()
         lspconfig["lua_ls"].setup({
           capabilities = capabilities,
@@ -103,6 +104,20 @@ return {
               },
               completion = {
                 callSnippet = "Replace",
+              },
+            },
+          },
+        })
+      end,
+      ["intelephense"] = function()
+        lspconfig["intelephense"].setup({
+          capabilities = capabilities,
+          settings = {
+            intelephense = {
+              -- phpcs で怒られないように format size を設定する
+              format = {
+                tabSize = 4,
+                insertSpaces = true,
               },
             },
           },
