@@ -10,8 +10,11 @@ vim.g.mapleader = " "
 keymap.set({ "n", "v" }, "x", '"_x', { noremap = true, silent = true })
 -- keymap.set({ "n", "v" }, "d", '"_d', { noremap = true, silent = true })
 
--- Yank all
+----------------------------
+-- Knife
+----------------------------
 keymap.set("n", "<leader>kY", "ggVGy", { noremap = true, silent = true, desc = "Yank buffer all" })
+keymap.set("n", "<leader>k/", "<Cmd>noh<CR>", { noremap = true, silent = true, desc = "Clean highlight" })
 
 ----------------------------
 -- Windows
