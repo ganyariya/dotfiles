@@ -44,6 +44,7 @@ return {
       { "<Leader>L", group = "Lint", icon = icon.get_icon("checkhealth") },
       { "<Leader>F", group = "Format", icon = "🌊" },
       { "<Leader>/", group = "Toggle Comment" },
+      { "<Leader>k", group = "Knife", icon = "🔪" },
       -- lsp
       { "<Leader>lg", group = "Goto" },
       -- git link

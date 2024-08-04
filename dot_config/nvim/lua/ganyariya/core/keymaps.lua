@@ -7,8 +7,11 @@ end
 vim.g.mapleader = " "
 
 -- 削除したときに yank register に保存しないようにする
-keymap.set("n", "x", '"_x', { noremap = true, silent = true })
-keymap.set("n", "d", '"_d', { noremap = true, silent = true })
+keymap.set({ "n", "v" }, "x", '"_x', { noremap = true, silent = true })
+-- keymap.set({ "n", "v" }, "d", '"_d', { noremap = true, silent = true })
+
+-- Yank all
+keymap.set("n", "<leader>kY", "ggVGy", { noremap = true, silent = true, desc = "Yank buffer all" })
 
 ----------------------------
 -- Windows
