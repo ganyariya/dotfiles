@@ -1,6 +1,8 @@
 #!/bin/bash
 
 {{ if eq .chezmoi.os "darwin" }}
+# 一時的に startup を止める
+exit 0
 
 infocmp tmux-256color > ~/tmux-256color.info
 tic -xe tmux-256color ~/tmux-256color.info
