@@ -20,6 +20,15 @@ export PATH=$HOME/.nodebrew/current/bin:$PATH
 export GOPATH=$HOME/go
 
 ################################################################################
+# export NEOVIM_GITHUB_COPILOT environment variable
+# 個人と会社で github copilot が使えるかが異なる
+# そのため、ファイルの有無をもとに環境変数を切り替えて neovim で使う ai assistant を変更する
+################################################################################
+if [[ -f  ~/.config/zsh/zsh_neovim_github_copilot ]] && [[ $(cat ~/.config/zsh/zsh_neovim_github_copilot) == "1" ]] ; then
+  export NEOVIM_GITHUB_COPILOT=1
+fi
+
+################################################################################
 # Homebrew setup
 ################################################################################
 

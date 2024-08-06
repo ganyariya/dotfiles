@@ -8,3 +8,6 @@
 bin/executable_chezmoi
 
 .gitconfig_user
+
+# 各利用環境ごとにファイルを作成する
+.config/zsh/zsh_neovim_github_copilot
