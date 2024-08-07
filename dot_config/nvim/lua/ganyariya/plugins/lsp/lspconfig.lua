@@ -70,7 +70,8 @@ return {
 
         -- cursor 位置のドキュメントを読む
         opts.desc = "Show Documentation for what is under cursor"
-        keymap.set("n", "<Leader>lK", vim.lsp.buf.hover, opts)
+        keymap.set("n", "<Leader>lK", "<Cmd>Lspsaga hover_doc<CR>", opts)
+        keymap.set("n", "K", "<Cmd>Lspsaga hover_doc<CR>", opts)
 
         -- リスタートする
         opts.desc = "Restart LSP"
