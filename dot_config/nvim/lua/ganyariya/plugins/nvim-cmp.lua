@@ -15,14 +15,13 @@ return {
     "onsails/lspkind.nvim", -- VSCode のようなアイコンを出せるようにする
   },
 
-  config = function ()
-    local cmp = require('cmp')
-    local luasnip = require('luasnip')
-    local lspkind = require('lspkind')
+  config = function()
+    local cmp = require("cmp")
+    local luasnip = require("luasnip")
+    local lspkind = require("lspkind")
 
     -- vscode スタイルのスニペットを登録する (friendly-snippets の内容を登録している)
     require("luasnip.loaders.from_vscode").lazy_load()
-
 
     cmp.setup({
       completion = {
@@ -34,14 +33,14 @@ return {
         end,
       },
       mapping = cmp.mapping.preset.insert({
-        ['<C-n>'] = cmp.mapping.select_next_item(),
-        ['<C-p>'] = cmp.mapping.select_prev_item(),
-        ['<Tab>'] = cmp.mapping.select_next_item(),
-        ['<S-Tab>'] = cmp.mapping.select_prev_item(),
-        ['<C-b>'] = cmp.mapping.scroll_docs(-4),
-        ['<C-f>'] = cmp.mapping.scroll_docs(4),
-        ['<C-e>'] = cmp.mapping.abort(), -- close completion window
-        ['<CR>'] = cmp.mapping.confirm({ select = false }),
+        ["<C-n>"] = cmp.mapping.select_next_item(),
+        ["<C-p>"] = cmp.mapping.select_prev_item(),
+        --['<Tab>'] = cmp.mapping.select_next_item(),
+        --['<S-Tab>'] = cmp.mapping.select_prev_item(),
+        ["<C-b>"] = cmp.mapping.scroll_docs(-4),
+        ["<C-f>"] = cmp.mapping.scroll_docs(4),
+        ["<C-e>"] = cmp.mapping.abort(), -- close completion window
+        ["<CR>"] = cmp.mapping.confirm({ select = false }),
       }),
       sources = cmp.config.sources({
         { name = "nvim_lsp" },
@@ -57,5 +56,5 @@ return {
         }),
       },
     })
-  end
+  end,
 }
