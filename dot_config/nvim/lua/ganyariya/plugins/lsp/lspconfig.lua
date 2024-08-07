@@ -27,8 +27,14 @@ return {
         keymap.set("n", "<leader>lR", "<Cmd>Telescope lsp_references<CR>", opts)
 
         -- カーソルにある word の定義を調べる
-        opts.desc = "Show Definitions"
-        keymap.set("n", "<Leader>lD", "<Cmd>Telescope lsp_definitions<CR>", opts)
+        --opts.desc = "Show Definitions"
+        --keymap.set("n", "<Leader>lD", "<Cmd>Telescope lsp_definitions<CR>", opts)
+
+        -- カーソルにある word の定義を調べる
+        -- edit = '<C-c>o' vsplit = "<C-c>v" split = "<C-c>i" tabe = "<C-c>t" quit = "q" close = "<C-c>k"
+        -- TODO: これら keymap がきちんと動いていないので治す
+        opts.desc = "Show Definitions with Saga"
+        keymap.set("n", "<Leader>lD", "<Cmd>Lspsaga peek_definition<CR>", opts)
 
         -- カーソルにある word の実装を調べる
         opts.desc = "Show Implementations"
@@ -70,7 +76,8 @@ return {
 
         -- cursor 位置のドキュメントを読む
         opts.desc = "Show Documentation for what is under cursor"
-        keymap.set("n", "<Leader>lK", vim.lsp.buf.hover, opts)
+        keymap.set("n", "<Leader>lK", "<Cmd>Lspsaga hover_doc<CR>", opts)
+        keymap.set("n", "K", "<Cmd>Lspsaga hover_doc<CR>", opts)
 
         -- リスタートする
         opts.desc = "Restart LSP"
