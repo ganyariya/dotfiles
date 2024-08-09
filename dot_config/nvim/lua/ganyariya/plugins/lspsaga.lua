@@ -4,7 +4,15 @@ return {
   event = "LspAttach",
   lazy = true,
   config = function()
-    require("lspsaga").setup({})
+    require("lspsaga").setup({
+      definition = {
+        keys = {
+          edit = "<C-c>o",
+          vsplit = "<C-c>v",
+          quit = "q",
+        },
+      },
+    })
   end,
   dependencies = {
     "nvim-treesitter/nvim-treesitter", -- optional
