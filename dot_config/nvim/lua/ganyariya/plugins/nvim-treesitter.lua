@@ -26,6 +26,8 @@ return {
         "php",
         "markdown",
         "go",
+        "yaml",
+        "dockerfile",
       },
       incremental_selection = {
         enable = true,

@@ -29,6 +29,11 @@ return {
         --php
         "intelephense",
         "psalm",
+        --docker
+        "dockerls",
+        "docker_compose_language_service",
+        --cpp
+        "clangd",
       },
     })
 
@@ -40,6 +45,8 @@ return {
         -- php linter
         "phpcs",
         "phpstan",
+        -- c++ formatter
+        "clang-format",
       },
     })
   end,

@@ -1,3 +1,5 @@
+vim.g.winresizer_start_key = "<Leader>wr"
+
 return {
   "simeji/winresizer",
   config = function()
