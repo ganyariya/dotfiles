@@ -23,6 +23,7 @@
 
 https://www.youtube.com/watch?v=6pAG3BHurdM
 
+
 ## Shortcut (忘れやすいものをまとめておく)
 
 ### Terminal mode
