@@ -99,11 +99,25 @@ zstyle ':completion:*:default' menu select=1
 # zsh history
 ################################################################################
 function select-history() {
+  # history -n -r 1: すべての履歴を逆順に番号なしで表示
+  # +m (複数選択を無効化) LBUFFER=今入力している文字列をそのまま検索するため
   BUFFER=$(history -n -r 1 | fzf --no-sort +m --query "$LBUFFER" --prompt="History > ")
+  # CURSOR = zsh の特殊変数(カーソル位置) $#VAR=VAR の文字列長さ
+  # カーソル位置を文字列末尾に移動させる
   CURSOR=$#BUFFER
 }
+# https://dev.classmethod.jp/articles/zsh-zle-introduction/
+# zle = zsh line editor = zsh において コマンドライン を直接編集する
+# select-history を ZLE ウィジェットに登録する
 zle -N select-history
 bindkey '^r' select-history
+
+function select-path() {
+  BUFFER="${BUFFER}$(find ${1:-.} -type d | fzf --no-sort +m)"
+  CURSOR=$#BUFFER
+}
+zle -N select-path
+bindkey '^g' select-path
 
 ################################################################################
 # gcloud completion
