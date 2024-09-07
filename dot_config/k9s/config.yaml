@@ -1,2 +1,2 @@
 k9s:
-  readonly: true
+  readOnly: true
