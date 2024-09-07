@@ -1,0 +1,11 @@
+# ~/.config/starship.toml
+# https://starship.rs/ja-JP/config
+
+[gcloud]
+symbol = '☁️ '
+format = '[\[$symbol$project\]]($style)'
+
+[kubernetes]
+disabled = false
+format = '[\[$symbol$context($namespace)\]](green dimmed) '
+
