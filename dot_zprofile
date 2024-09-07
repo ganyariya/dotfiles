@@ -20,6 +20,11 @@ export PATH=$HOME/.nodebrew/current/bin:$PATH
 export GOPATH=$HOME/go
 
 ################################################################################
+# export XDG_CONFIG_HOME
+################################################################################
+export XDG_CONFIG_HOME=$HOME/.config
+
+################################################################################
 # export NEOVIM_GITHUB_COPILOT environment variable
 # 個人と会社で github copilot が使えるかが異なる
 # そのため、ファイルの有無をもとに環境変数を切り替えて neovim で使う ai assistant を変更する
