@@ -3,7 +3,7 @@
 
 [gcloud]
 symbol = '☁️ '
-format = '[\[$symbol$project\]]($style)'
+format = '[\[$symbol$project\]]($style) '
 
 [kubernetes]
 disabled = false
