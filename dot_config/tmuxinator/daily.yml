@@ -11,12 +11,10 @@ windows:
       panes:
         - echo "install" && clear && clear
         - echo "install" && clear && clear
-        - echo "install" && clear && clear
-        - echo "install" && clear && clear
   - zenn:
       layout: even-horizontal
       panes:
-        - cd develop/zenn-ganyariya && npx zenn preview -p 8100 &
+        - cd develop/zenn-ganyariya
   - cui:
       layout: tiled
       panes:
