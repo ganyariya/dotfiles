@@ -1,0 +1,11 @@
+## terminal @quick @reference
+Change to terminal-normal mode | <C-\><C-n>
+Change to terminal-job mode | i
+
+## normal-mode @quick @reference
+Revert `u` operation | <C-r>
+Revert to previous cursor position  | <C-o>
+Mode to original next cursor position | <C-i>
+特定の単語をインクリメンタルに置換する | 
+Replace specific word incrementally | cgn → n → .
+
