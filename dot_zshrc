@@ -28,7 +28,7 @@ function eval_at_cmd_exists() {
 alias vi='nvim'
 alias vim='nvim'
 alias cat='bat'
-alias ls='exa --icons'
+alias ls='eza --icons'
 alias xargs='xargs '
 
 ################################################################################
