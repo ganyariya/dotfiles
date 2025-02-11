@@ -1,7 +1,7 @@
 local keymap = vim.keymap
 
 local opts = function(desc)
-  return { noremap = true, silent = true, desc = desc }
+	return { noremap = true, silent = true, desc = desc }
 end
 
 vim.g.mapleader = " "
@@ -67,3 +67,20 @@ keymap.set("n", "<Leader>bo", "<Cmd>%bdelete|e#|bdelete#<CR>", opts("Delete all 
 keymap.set("n", "<Leader>bw", "<Cmd>wall<CR>", opts("Save all modified buffers"))
 
 keymap.set("n", "<Leader>b`", "<Cmd>b#<CR>", opts("Go to last buffer"))
+
+----------------------------
+-- Scroll Cycle
+----------------------------
+local scroll_state = 1
+keymap.set("n", "zz", function()
+	if scroll_state == 1 then
+		vim.cmd("normal! zz")
+		scroll_state = 2
+	elseif scroll_state == 2 then
+		vim.cmd("normal! zt")
+		scroll_state = 3
+	elseif scroll_state == 3 then
+		vim.cmd("normal! zb")
+		scroll_state = 1
+	end
+end, { noremap = true, silent = true, desc = "Cycle scroll position (center/top/bottom)" })
