@@ -67,3 +67,23 @@ keymap.set("n", "<Leader>bo", "<Cmd>%bdelete|e#|bdelete#<CR>", opts("Delete all 
 keymap.set("n", "<Leader>bw", "<Cmd>wall<CR>", opts("Save all modified buffers"))
 
 keymap.set("n", "<Leader>b`", "<Cmd>b#<CR>", opts("Go to last buffer"))
+
+----------------------------
+--- Scroll cursor position
+----------------------------
+_G.scroll_cycle = _G.scroll_cycle or {
+  state = 1,
+}
+
+keymap.set("n", "zp", function()
+  if _G.scroll_cycle.state == 1 then
+    vim.cmd("normal! zz")
+    _G.scroll_cycle.state = 2
+  elseif _G.scroll_cycle.state == 2 then
+    vim.cmd("normal! zt")
+    _G.scroll_cycle.state = 3
+  elseif _G.scroll_cycle.state == 3 then
+    vim.cmd("normal! zb")
+    _G.scroll_cycle.state = 1
+  end
+end, { noremap = true, silent = false, desc = "Cycle scroll position (center/top/bottom)" })
