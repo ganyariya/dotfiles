@@ -1,2 +1,5 @@
 dot_config/gh/hosts.yml
 dot_config/gh/state.yml
+
+# .DS_Store
+**/.DS_Store
