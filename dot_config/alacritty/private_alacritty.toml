@@ -1,0 +1,59 @@
+
+[colors.bright]
+black = "#4c4c4c"
+blue = "#b3deef"
+cyan = "#73cef4"
+green = "#c9d05c"
+magenta = "#d3b987"
+red = "#f43753"
+white = "#feffff"
+yellow = "#ffc24b"
+
+[colors.normal]
+black = "#282828"
+blue = "#b3deef"
+cyan = "#73cef4"
+green = "#c9d05c"
+magenta = "#d3b987"
+red = "#f43753"
+white = "#eeeeee"
+yellow = "#ffc24b"
+
+[colors.primary]
+background = "#282828"
+foreground = "#eeeeee"
+
+[font]
+size = 14
+
+[font.bold]
+family = "Hack Nerd Font"
+style = "Bold"
+
+[font.italic]
+family = "Hack Nerd Font"
+style = "Italic"
+
+[font.normal]
+family = "Hack Nerd Font"
+style = "Regular"
+
+[scrolling]
+history = 10000
+
+[terminal.shell]
+args = ["--login"]
+program = "/bin/zsh"
+
+[window]
+decorations = "full"
+opacity = 0.9
+
+[window.padding]
+x = 4
+y = 2
+
+[general]
+live_config_reload = true
+
+[terminal]
