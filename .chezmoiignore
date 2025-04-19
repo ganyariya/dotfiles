@@ -2,11 +2,14 @@
 .config/tmux/*
 !.config/tmux/tmux.conf
 
+# gh
 .config/gh/*
 !.config/gh/config.yml
 
+# bin
 bin/executable_chezmoi
 
+# git user ごとに設定する
 .gitconfig_user
 
 # 各利用環境ごとにファイルを作成する

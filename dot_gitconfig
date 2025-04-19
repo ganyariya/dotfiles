@@ -1,6 +1,6 @@
-# https://github.com/dandavison/delta
 [core]
 	editor = vim
+	# https://github.com/dandavison/delta
 	pager = delta
 	# 日本語を正常に表示させる
 	quotepath = false
@@ -16,19 +16,17 @@
 	conflictstyle = diff3
 [diff]
 	colorMoved = default
-# lfs のデフォルト設定
 [filter "lfs"]
+	# lfs のデフォルト設定
     clean = git-lfs clean -- %f
     smudge = git-lfs smudge -- %f
     process = git-lfs filter-process
     required = true
 
-# 個人と会社で email が異なるため user は分離する
 [include]
+	# 個人と会社で email が異なるため user は分離する
 	path = ~/.gitconfig_user
 [credential "https://github.com"]
-	helper = 
-	helper = !/opt/homebrew/bin/gh auth git-credential
+	helper = gh auth git-credential
 [credential "https://gist.github.com"]
-	helper = 
-	helper = !/opt/homebrew/bin/gh auth git-credential
+	helper = gh auth git-credential
