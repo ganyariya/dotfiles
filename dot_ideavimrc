@@ -1,0 +1,2 @@
+nnoremap :w :action ReformatCode<CR>:w
+set clipboard+=unnamed
