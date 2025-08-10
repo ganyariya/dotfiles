@@ -1,3 +1,7 @@
+# Prerequisite
+
+Install git.
+
 # Setup
 
 ### Mac
@@ -15,7 +19,7 @@ apt update && \
   sh -c "$(curl -fsLS get.chezmoi.io)" -- -b $HOME/bin init --apply ganyariya
 ```
 
-### Forcely refresh archives
+# Forcely refresh archives
 
 ```bash
 chezmoi apply --init --refresh-externals
