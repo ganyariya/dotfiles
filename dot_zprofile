@@ -48,5 +48,5 @@ fi
 
 export EDITOR=vi
 # zsh enhancd で exa+fzf を利用する
-export ENHANCD_FILTER="fzf --preview='exa --tree --group-directories-first --git-ignore --level 1 {}'"
+export ENHANCD_FILTER="fzf --preview='eza --tree --group-directories-first --git-ignore --level 1 {}'"
 export KUBECONFIG=~/.kube/config
